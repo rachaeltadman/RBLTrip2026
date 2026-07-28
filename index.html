@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bon Voyage, Boa Viagem 🇫🇷✈️🇵🇹</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lavender: #DEC8F5;
+    --pink: #F9D0DC;
+    --blue: #A8C8F0;
+    --cream: #FFFBF7;
+    --ink: #443F52;
+    --ink-soft: #8A8296;
+    --green: #3C8C5E;
+    --amber: #C98A3E;
+    --line: #EEE6F5;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Lexend', sans-serif;
+    background: linear-gradient(160deg, #FDF1F7 0%, #F6F0FC 35%, #EFF4FC 65%, #FFF8F0 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  header .sub {
+    color: var(--ink-soft);
+    font-size: 1em;
+    font-weight: 400;
+  }
+  .travelers {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .traveler-chip {
+    font-size: 0.8em;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 100px;
+  }
+  .chip-r { background: var(--lavender); }
+  .chip-b { background: var(--pink); }
+  .chip-l { background: var(--blue); }
+
+  /* Nav */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.85em;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--line);
+    background: white;
+    transition: all 0.15s ease;
+  }
+  nav a:hover { background: var(--lavender); border-color: var(--lavender); }
+
+  /* Section headers */
+  section { margin-bottom: 56px; }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .section-title .icon { font-size: 1.1em; }
+
+  /* Flight cards */
+  .flight-group {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+  }
+  .flight-group.pink-top { border-top: 4px solid var(--pink); }
+  .flight-leg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .flight-leg:last-of-type { border-bottom: none; }
+  .flight-leg .route { font-weight: 600; font-size: 0.95em; }
+  .flight-leg .airline { color: var(--ink-soft); font-size: 0.8em; }
+  .flight-leg .times { text-align: right; font-size: 0.85em; color: var(--ink-soft); }
+  .flight-meta {
+    font-size: 0.78em;
+    color: var(--ink-soft);
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+  .traveler-tag {
+    display: inline-block;
+    font-size: 0.72em;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 100px;
+    margin-bottom: 8px;
+  }
+
+  /* Status badges */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72em;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+  }
+  .badge-booked { background: #E3F3E9; color: var(--green); }
+  .badge-needed { background: #FBEAEA; color: #C25450; }
+  .badge-idea { background: #F3EFE4; color: var(--amber); }
+
+  /* Day cards */
+  .day {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .day-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--lavender);
+    border-bottom: 1px solid var(--line);
+  }
+  .day-head.loc-nice { background: var(--lavender); }
+  .day-head.loc-lisbon { background: var(--blue); }
+  .day-head.loc-algarve { background: var(--pink); }
+  .day-head.loc-transit { background: linear-gradient(90deg, var(--pink), var(--blue)); }
+  .day-head.loc-home { background: linear-gradient(90deg, var(--lavender), var(--pink)); }
+  .day-head .date {
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+  .day-head .place {
+    color: var(--ink-soft);
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+  .day-body { padding: 16px 20px; }
+  .day-body ul {
+    margin: 0 0 10px;
+    padding-left: 18px;
+    font-size: 0.9em;
+  }
+  .day-body li { margin-bottom: 4px; }
+  .day-needs {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--line);
+  }
+  .day-needs .badge { margin: 2px 4px 2px 0; }
+
+  /* Status lists */
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 620px) {
+    .status-grid { grid-template-columns: 1fr; }
+  }
+  .status-col {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 22px;
+    border: 1px solid var(--line);
+  }
+  .status-col.booked { border-top: 4px solid var(--green); }
+  .status-col.needed { border-top: 4px solid #C25450; }
+  .status-col h3 {
+    margin: 0 0 14px;
+    font-size: 1.05em;
+  }
+  .status-col ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 0.88em;
+  }
+  .status-col li { margin-bottom: 8px; }
+
+  /* Day field rows */
+  .field-row {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88em;
+    align-items: flex-start;
+  }
+  .field-row:last-of-type { border-bottom: none; }
+  .field-label {
+    flex: 0 0 92px;
+    font-weight: 600;
+    font-size: 0.85em;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .field-content { flex: 1; }
+  .field-content .badge { margin-left: 6px; }
+  .field-content .meta {
+    display: block;
+    font-size: 0.85em;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  /* Expenses */
+  .exp-card {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 16px;
+  }
+  .exp-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .exp-form .full { grid-column: 1 / -1; }
+  @media (max-width: 560px) {
+    .exp-form { grid-template-columns: 1fr; }
+  }
+  .exp-form label {
+    display: block;
+    font-size: 0.78em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .exp-form input, .exp-form select {
+    width: 100%;
+    font-family: 'Lexend', sans-serif;
+    font-size: 0.9em;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--cream);
+    color: var(--ink);
+  }
+  .checkbox-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 4px;
+  }
+  .checkbox-row label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    font-size: 0.85em;
+    color: var(--ink);
+  }
+  .checkbox-row input { width: auto; }
+  .exp-submit {
+    grid-column: 1 / -1;
+    background: var(--lavender);
+    border: none;
+    border-radius: 100px;
+    padding: 11px 20px;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: var(--ink);
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .exp-submit:hover { background: #D2B4EE; }
+
+  .balance-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 560px) {
+    .balance-grid { grid-template-columns: 1fr; }
+  }
+  .balance-card {
+    border-radius: 14px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .balance-card .name { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+  .balance-card .amt { font-size: 1.3em; font-weight: 700; }
+  .balance-card .sub { font-size: 0.75em; color: var(--ink-soft); }
+
+  .settle-list {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+  }
+  .settle-list .settle-row {
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  .settle-list .settle-row:last-child { border-bottom: none; }
+  .settle-list .none { color: var(--ink-soft); font-style: italic; }
+
+  .exp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85em;
+  }
+  .exp-table th {
+    text-align: left;
+    font-size: 0.78em;
+    color: var(--ink-soft);
+    padding: 6px 8px;
+    border-bottom: 2px solid var(--line);
+  }
+  .exp-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .exp-table tr:last-child td { border-bottom: none; }
+  .status-select {
+    font-family: 'Lexend', sans-serif;
+    font-size: 0.78em;
+    padding: 4px 8px;
+    border-radius: 100px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .status-paid { background: #E3F3E9; color: var(--green); }
+  .status-reserved { background: #F3EFE4; color: var(--amber); }
+  .status-tbp { background: #FBEAEA; color: #C25450; }
+  .del-btn {
+    background: none;
+    border: none;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-size: 1em;
+  }
+  .del-btn:hover { color: #C25450; }
+  .exp-empty {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.85em;
+    padding: 20px 0;
+  }
+  .exp-loading {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.85em;
+    padding: 10px 0;
+  }
+  .shared-note {
+    font-size: 0.75em;
+    color: var(--ink-soft);
+    margin-top: -6px;
+    margin-bottom: 16px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.78em;
+    margin-top: 40px;
+  }
+</style>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Bon Voyage, Boa Viagem 🇫🇷✈️🇵🇹</h1>
+  <div class="sub">September 16 – 30, 2026 · Nice · Lisbon · Algarve</div>
+  <div class="travelers">
+    <span class="traveler-chip chip-r">Rachael</span>
+    <span class="traveler-chip chip-b">Brandi</span>
+    <span class="traveler-chip chip-l">Lizzie</span>
+  </div>
+</header>
+
+<nav>
+  <a href="#itinerary">Day-by-Day</a>
+  <a href="#status">Booked &amp; Needed</a>
+  <a href="#expenses">💰 Expenses</a>
+</nav>
+
+  <!-- SEPT 16 -->
+  <div class="day">
+    <div class="day-head loc-home"><span class="date">Sept 16 — Depart Seattle</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">✈️ Flight</div>
+        <div class="field-content">
+          <span class="traveler-tag chip-r" style="font-size:0.68em;">R &amp; B</span> 1:35pm — BA 52 SEA→LHR
+          <span class="meta">Conf: CQQYOS · <span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label"></div>
+        <div class="field-content">
+          <span class="traveler-tag chip-l" style="font-size:0.68em;">Lizzie</span> 11:50am — DL 554 SEA→ATL
+          <span class="meta"><span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">In transit — overnight flights</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content">At home / airport <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Airport / in-flight <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content">In-flight <span class="badge badge-needed">Not picked</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 17 -->
+  <div class="day">
+    <div class="day-head loc-nice"><span class="date">Sept 17 — Land Nice</span><span class="place">Nice</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">✈️ Flight</div>
+        <div class="field-content">
+          <span class="traveler-tag chip-r" style="font-size:0.68em;">R &amp; B</span> 1:10pm — BA 328 LHR→NCE lands
+          <span class="meta"><span class="badge badge-booked">✓ Booked</span></span><br>
+          <span class="traveler-tag chip-l" style="font-size:0.68em;">Lizzie</span> 12:00pm — DL 24 ATL→NCE lands
+          <span class="meta"><span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🚕 Transfer</div>
+        <div class="field-content">Airport → Airbnb <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Airbnb, 23 Rue Droite <span class="badge badge-booked">✓ Booked &amp; paid</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content">In-flight / airport <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Hobo Coffee — vintage-inspired cafe in Old Town, great flat whites</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">On arrival <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Settle in, walk Old Town</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Le Panier or Chez Palmyre — classic Niçoise bistro fare, easy walk from the Airbnb</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 18 -->
+  <div class="day">
+    <div class="day-head loc-nice"><span class="date">Sept 18 — Nice</span><span class="place">Nice</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Airbnb, 23 Rue Droite <span class="badge badge-booked">✓ Booked &amp; paid</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: La Femme du Boulanger or Marinette — fresh croissants, easy Old Town breakfast</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Déli Bo — well-loved for pastries and coffee together</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Morning — Cours Saleya market, socca</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Chez Thérésa — some of the best socca in Nice, a local institution</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content">6:45pm — Le Plongeoir <span class="badge badge-needed">Still waitlisted</span>
+          <span class="meta">No backup spot picked yet</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Wayne's Bar — long-running, lively Old Town bar with regular live bands</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 19 -->
+  <div class="day">
+    <div class="day-head loc-nice"><span class="date">Sept 19 — Cap Ferrat / Menton</span><span class="place">Nice area</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Airbnb, 23 Rue Droite <span class="badge badge-booked">✓ Booked &amp; paid</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: quick pastry from a Cap Ferrat bakery before heading out</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: grab coffee in Menton's old town while wandering</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Morning — Snorkeling at Cap Ferrat, walk to Paloma Beach <span class="badge badge-needed">Gear rental not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Cap Ferrat <span class="badge badge-needed">Spot not confirmed</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Afternoon — Menton, Cimitero del Vecchio Castello, wander old town
+          <span class="meta">Monaco dropped — already covered in depth on Sept 20's tour (old town, palace, cathedral)</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Casa Leya — Italian-leaning terrace spot on Cours Saleya, truffle gnocchi and seafood linguine</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Le Malabar — lounge/cocktail vibe, good for a relaxed listening-bar feel after a full day</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 20 -->
+  <div class="day">
+    <div class="day-head loc-nice"><span class="date">Sept 20 — Riviera Day Tour</span><span class="place">Nice area</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Airbnb, 23 Rue Droite <span class="badge badge-booked">✓ Booked &amp; paid</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something quick before the 9am tour — La Brioche Chaude for grab-and-go</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: grab a coffee wherever the tour stops (Èze or Saint-Paul-de-Vence both have charming cafes)</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Tour</div>
+        <div class="field-content">9:00am — Best of the French Riviera Small Group Guided Tour
+          <span class="meta">Confirmation #1811307089 · <span class="badge badge-booked">✓ Booked</span></span>
+          <span class="meta">Stops: Villefranche (photo) → Cap Ferrat (photo) → Èze → Fragonard Perfumery (optional) → Monaco (old town, palace, cathedral) → Monte-Carlo (Casino Square) → F1 circuit → Cannes (La Croisette, Palais des Festivals) → Antibes (marina, ramparts, Provençal market) → Saint-Paul-de-Vence → drop-off in Nice</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">On tour <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Nice Sunset — right off the Old Town along Quai des États-Unis, sea views at golden hour</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Distilleries Idéales — Old Town bar with a great terrace, low-key drinks-and-chat vibe</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 21 -->
+  <div class="day">
+    <div class="day-head loc-transit"><span class="date">Sept 21 — Nice → Lisbon</span><span class="place">Transit</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">✈️ Flight</div>
+        <div class="field-content">Everyone — Nice → Lisbon <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lisbon city hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: pastry from Old Town before heading to the airport</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Airport / in-flight <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Evening — settle in, easy evening</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something easy near the hotel — save energy for the tuk tuk tour tomorrow</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 22 -->
+  <div class="day">
+    <div class="day-head loc-lisbon"><span class="date">Sept 22 — Lisbon</span><span class="place">Lisbon</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lisbon city hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Dear Breakfast (Alfama location) — popular brunch spot, egg sandwich or acai bowl</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Copenhagen Coffee Lab (Alfama) — spacious, great patio, take Tram 28 there</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Tour</div>
+        <div class="field-content">9:00am — 4-Hour Private Tuk Tuk Tour
+          <span class="meta">Confirmation #1811308075 · <span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something quick near Alfama/Castelo between tour stops</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Afternoon/evening — Alfama, Castelo de São Jorge, Tram 28, golden hour at a miradouro</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content">7:00–9:15pm — Rocco, Rua Ivens 14
+          <span class="meta">Conf: 7D4ELR3H5JPA · Party of 3 · <span class="badge badge-booked">✓ Booked</span></span>
+          <span class="meta">15-min grace period, €25/person no-show fee after that</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: SPOT Bairro Alto — small live-music bar, great mix of locals and tourists, good mojitos</span></div>
+      </div>
+  <div class="day">
+    <div class="day-head loc-lisbon"><span class="date">Sept 23 — Lisbon</span><span class="place">Lisbon</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lisbon city hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"><span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Morning — Pastel de nata cooking class <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Belém, near the pastéis de nata bakery <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Midday — Belém: Jerónimos Monastery, Belém Tower, original pastéis de nata bakery</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Evening — Sunset cruise <span class="badge badge-needed">Not booked</span>, Time Out Market, Pink Street</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content">Fado dinner <span class="badge badge-needed">Not booked</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 24 -->
+  <div class="day">
+    <div class="day-head loc-transit"><span class="date">Sept 24 — Lisbon → Comporta → Lagos</span><span class="place">Transit</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🚗 Rental Car</div>
+        <div class="field-content">Pick up in Lisbon, drive toward Lagos (~3.5 hrs total w/ stop) <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Stop in Comporta — beach &amp; lunch break on the way down</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lagos hotel — Base 1 <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Marquise da Mobler — bakery, coffee shop, and concept store all in one, great pastries</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Comporta <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something easy in Lagos after the drive — check what's open near the hotel</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 25 -->
+  <div class="day">
+    <div class="day-head loc-algarve"><span class="date">Sept 25 — Lagos</span><span class="place">Algarve · Base 1</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lagos hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Black and White Coffee Shop — Lagos' most popular coffee spot, great yogurt bowl</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Coffee & Waves — surf-themed cafe, smoothies and healthy bowls</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Ponta da Piedade cliffs, Praia Dona Ana, Praia do Camilo <span class="badge badge-idea">Idea only</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Restaurante The Garden — laid-back, open-air, Mediterranean/international</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something along the marina — good energy in the evening</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Praça Gil Eanes — Lagos' main square, terraces and people-watching to start the night</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 26 -->
+  <div class="day">
+    <div class="day-head loc-algarve"><span class="date">Sept 26 — Benagil</span><span class="place">Algarve · Base 1</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lagos hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Padaria Central — one of Lagos' oldest bakeries (est. 1926), great pastel de nata, opens at 7am</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Twin Fin — chill surf vibe, good cappuccino, big shared tables</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Tour</div>
+        <div class="field-content">10:30am — Kayak Tour to Benagil Cave
+          <span class="meta">Booking reference BR-1429219667 · <span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">Near Praia da Marinha <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Afternoon — Praia da Marinha</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Orta at Casa Mãe — boutique hotel restaurant open to the public, seasonal menu</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Amuras Bar — marina-side, romantic, ambient music, great sunset spot for a nightcap</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 27 -->
+  <div class="day">
+    <div class="day-head loc-algarve"><span class="date">Sept 27 — Sagres &amp; Cape St. Vincent</span><span class="place">Algarve · Base 1</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lagos hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Abigail's Cafe — spacious spot with great views, smoothies and acai bowls</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: look for a seafood spot in Sagres overlooking the water</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Evening — sunset at Sagres / Cape St. Vincent <span class="badge badge-idea">Idea only</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something in Sagres before or after the sunset — casual seaside spot</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎶 Nightlife</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Bon Vivant — multi-level bar since 1987, jazz vibes, open till 4am if you want to dance</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 28 -->
+  <div class="day">
+    <div class="day-head loc-algarve"><span class="date">Sept 28 — Lagos → Silves → Tavira</span><span class="place">Algarve · Base 2</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🚗 Rental Car</div>
+        <div class="field-content">Check out of Lagos, drive to Tavira via Silves (~2 hrs total w/ stop) <span class="badge badge-needed">Route not confirmed</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Stop at Silves Castle, old town, coffee in the square <span class="badge badge-idea">Idea only</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Tavira hotel — Base 2 <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something quick in Lagos before the drive out</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">☕ Coffee</div>
+        <div class="field-content"><span class="badge badge-idea">Idea: Flavour Café — vegan-friendly breakfast/coffee spot in Tavira</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: look for a cafe in Silves' old town near the castle</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Evening — arrive Tavira, explore the canals, Roman bridge, old town</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Restaurante Terraze — riverside spot in Tavira with lovely water views</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 29 -->
+  <div class="day">
+    <div class="day-head loc-transit"><span class="date">Sept 29 — Tavira → Faro → Lisbon</span><span class="place">Transit</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Tavira hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: Pastelaria Veneza or Goji — well-loved Tavira breakfast spots</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Morning — short Tavira wander before heading out</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🚗 Rental Car</div>
+        <div class="field-content">Drive Tavira → Faro (~35 min), drop off <span class="badge badge-needed">Drop-off not arranged</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🎟️ Activity</div>
+        <div class="field-content">Stop at Capela dos Ossos (Chapel of Bones), Faro</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something quick in Faro before the train</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🚄 Train</div>
+        <div class="field-content">Everyone — Alfa Pendular, Faro → Lisbon (Oriente), ~2hr 52min <span class="badge badge-needed">Not booked</span>
+          <span class="meta">~$26-40/person · first train 7:22am, 4 departures/day</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🚕 Transfer</div>
+        <div class="field-content">Oriente station → Lisbon Airport hotel <span class="badge badge-needed">Not arranged</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lisbon Airport hotel (Star Inn / Meliá / Eurostars Universal) <span class="badge badge-needed">Not booked</span>
+          <span class="meta">Staying at the airport means no transfer needed on Sept 30 ✓</span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: something simple near the Lisbon Airport hotel — low-key last night</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEPT 30 -->
+  <div class="day">
+    <div class="day-head loc-home"><span class="date">Sept 30 — Fly Home</span></div>
+    <div class="day-body">
+      <div class="field-row">
+        <div class="field-label">🏨 Lodging</div>
+        <div class="field-content">Lisbon Airport hotel <span class="badge badge-needed">Not booked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍳 Breakfast</div>
+        <div class="field-content"> <span class="badge badge-idea">Idea: hotel breakfast or a coffee spot near the terminal</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">✈️ Flight</div>
+        <div class="field-content">
+          <span class="traveler-tag chip-r" style="font-size:0.68em;">R &amp; B</span> 11:05am — AA 259 LIS→PHL; 6:59pm — AS 443 PHL→SEA
+          <span class="meta">Conf: NBUFFK · <span class="badge badge-booked">✓ Booked</span></span><br>
+          <span class="traveler-tag chip-l" style="font-size:0.68em;">Lizzie</span> 12:45pm — DL 125 LIS→BOS; 6:35pm — DL 324 BOS→SEA
+          <span class="meta"><span class="badge badge-booked">✓ Booked</span></span>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🚕 Transfer</div>
+        <div class="field-content">None needed — already at the airport hotel ✓</div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🥪 Lunch</div>
+        <div class="field-content">In-flight <span class="badge badge-needed">Not picked</span></div>
+      </div>
+      <div class="field-row">
+        <div class="field-label">🍽️ Dinner</div>
+        <div class="field-content">In-flight / home <span class="badge badge-needed">Not picked</span></div>
+      </div>
+    </div>
+  </div>
+
+
+<section id="status">
+  <div class="section-title"><span class="icon">📋</span> Booked &amp; Needed</div>
+  <div class="status-grid">
+    <div class="status-col booked">
+      <h3>✓ Booked</h3>
+      <ul>
+        <li>Nice outbound &amp; Lisbon return flights (all travelers)</li>
+        <li>Nice Airbnb — 23 Rue Droite</li>
+        <li>French Riviera Small Group Tour — Sept 20</li>
+        <li>Lisbon Tuk Tuk Tour — Sept 22</li>
+        <li>Benagil Kayak Tour — Sept 26</li>
+      </ul>
+    </div>
+    <div class="status-col needed">
+      <h3>Still Needed</h3>
+      <ul>
+        <li>Nice → Lisbon flight (Sept 21)</li>
+        <li>Faro → Lisbon train, Alfa Pendular (Sept 29)</li>
+        <li>Oriente station → Lisbon Airport hotel transfer</li>
+        <li>Lisbon city hotel (Sept 21–24)</li>
+        <li>Lagos hotel — Base 1 (Sept 24–28)</li>
+        <li>Tavira hotel — Base 2 (Sept 28–29)</li>
+        <li>Lisbon Airport hotel (Sept 29)</li>
+        <li>Rental car (pickup Lisbon, drop Faro)</li>
+        <li>Comporta lunch/beach stop details</li>
+        <li>Silves stop en route to Tavira</li>
+        <li>Nice airport transfer (arrival only)</li>
+        <li>Nice dinner reservations (arrival night, Sept 18 backup)</li>
+        <li>Snorkeling gear rental (Cap Ferrat)</li>
+        <li>Le Plongeoir waitlist confirmation</li>
+        <li>Fado dinner reservation</li>
+        <li>Tile painting / wine / Sesimbra tour</li>
+        <li>Pastel de nata class</li>
+        <li>Sunset cruise</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="expenses">
+  <div class="section-title"><span class="icon">💰</span> Expenses</div>
+  <div class="shared-note">Shared with everyone on this trip — anyone can add or update an expense.</div>
+
+  <div id="balanceArea">
+    <div class="exp-loading">Loading balances…</div>
+  </div>
+
+  <div class="exp-card">
+    <h3 style="margin-top:0; font-size:1em;">Add an Expense</h3>
+    <form class="exp-form" id="expenseForm">
+      <div class="full">
+        <label>What was it for?</label>
+        <input type="text" id="expDesc" placeholder="e.g. Lagos hotel deposit" required>
+      </div>
+      <div>
+        <label>Amount ($)</label>
+        <input type="number" id="expAmount" step="0.01" min="0" placeholder="0.00" required>
+      </div>
+      <div>
+        <label>Who paid?</label>
+        <select id="expPaidBy">
+          <option value="Rachael">Rachael</option>
+          <option value="Brandi">Brandi</option>
+          <option value="Lizzie">Lizzie</option>
+        </select>
+      </div>
+      <div class="full">
+        <label>Split between</label>
+        <div class="checkbox-row">
+          <label><input type="checkbox" class="expSplit" value="Rachael" checked> Rachael</label>
+          <label><input type="checkbox" class="expSplit" value="Brandi" checked> Brandi</label>
+          <label><input type="checkbox" class="expSplit" value="Lizzie" checked> Lizzie</label>
+        </div>
+      </div>
+      <div>
+        <label>Status</label>
+        <select id="expStatus">
+          <option value="paid">Paid</option>
+          <option value="reserved">Reserved</option>
+          <option value="tbp">To Be Paid</option>
+        </select>
+      </div>
+      <div>
+        <label>Due date (optional)</label>
+        <input type="date" id="expDue">
+      </div>
+      <button type="submit" class="exp-submit">Add Expense</button>
+    </form>
+  </div>
+
+  <div class="exp-card">
+    <h3 style="margin-top:0; font-size:1em;">All Expenses</h3>
+    <div style="overflow-x:auto;">
+      <table class="exp-table" id="expenseTable">
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Amount</th>
+            <th>Paid By</th>
+            <th>Split</th>
+            <th>Status</th>
+            <th>Due</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="expenseRows">
+          <tr><td colspan="7" class="exp-loading">Loading expenses…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>Made with love for Rachael, Brandi &amp; Lizzie 💛</footer>
+
+</div>
+<script>
+(function() {
+  const PEOPLE = ["Rachael", "Brandi", "Lizzie"];
+  const STORAGE_KEY = "expenses";
+  let expenses = [];
+
+  async function loadExpenses() {
+    try {
+      const result = await window.storage.get(STORAGE_KEY, true);
+      expenses = result && result.value ? JSON.parse(result.value) : [];
+    } catch (e) {
+      expenses = [];
+    }
+    render();
+  }
+
+  async function saveExpenses() {
+    try {
+      await window.storage.set(STORAGE_KEY, JSON.stringify(expenses), true);
+    } catch (e) {
+      console.error("Failed to save expenses:", e);
+      alert("Something went wrong saving that — please try again.");
+    }
+  }
+
+  function statusClass(status) {
+    if (status === "paid") return "status-paid";
+    if (status === "reserved") return "status-reserved";
+    return "status-tbp";
+  }
+  function statusLabel(status) {
+    if (status === "paid") return "Paid";
+    if (status === "reserved") return "Reserved";
+    return "To Be Paid";
+  }
+
+  function computeBalances() {
+    // net[person] = how much they are owed (positive) or owe (negative)
+    const net = {};
+    PEOPLE.forEach(p => net[p] = 0);
+
+    expenses.forEach(exp => {
+      if (!exp.split || exp.split.length === 0) return;
+      const share = exp.amount / exp.split.length;
+      net[exp.paidBy] += exp.amount;
+      exp.split.forEach(person => {
+        net[person] -= share;
+      });
+    });
+    return net;
+  }
+
+  function settleUp(net) {
+    // Simple greedy settlement: people who owe pay people who are owed
+    const creditors = [];
+    const debtors = [];
+    PEOPLE.forEach(p => {
+      const amt = Math.round(net[p] * 100) / 100;
+      if (amt > 0.01) creditors.push({ person: p, amt });
+      else if (amt < -0.01) debtors.push({ person: p, amt: -amt });
+    });
+
+    const transactions = [];
+    let ci = 0, di = 0;
+    creditors.sort((a,b) => b.amt - a.amt);
+    debtors.sort((a,b) => b.amt - a.amt);
+
+    while (ci < creditors.length && di < debtors.length) {
+      const c = creditors[ci];
+      const d = debtors[di];
+      const amt = Math.min(c.amt, d.amt);
+      if (amt > 0.01) {
+        transactions.push({ from: d.person, to: c.person, amt: Math.round(amt * 100) / 100 });
+      }
+      c.amt -= amt;
+      d.amt -= amt;
+      if (c.amt <= 0.01) ci++;
+      if (d.amt <= 0.01) di++;
+    }
+    return transactions;
+  }
+
+  function render() {
+    renderBalances();
+    renderTable();
+  }
+
+  function renderBalances() {
+    const net = computeBalances();
+    const transactions = settleUp(net);
+
+    const chipClass = { Rachael: "chip-r", Brandi: "chip-b", Lizzie: "chip-l" };
+    let html = '<div class="balance-grid">';
+    PEOPLE.forEach(p => {
+      const amt = Math.round(net[p] * 100) / 100;
+      const color = amt > 0.01 ? "#E3F3E9" : (amt < -0.01 ? "#FBEAEA" : "#F3EFE4");
+      const label = amt > 0.01 ? "is owed" : (amt < -0.01 ? "owes" : "all settled");
+      html += `<div class="balance-card" style="background:${color};">
+        <div class="name">${p}</div>
+        <div class="amt">$${Math.abs(amt).toFixed(2)}</div>
+        <div class="sub">${label}</div>
+      </div>`;
+    });
+    html += '</div>';
+
+    html += '<div class="settle-list"><strong style="font-size:0.9em;">Who Owes Who</strong>';
+    if (transactions.length === 0) {
+      html += '<div class="settle-row none">Everyone is settled up 🎉</div>';
+    } else {
+      transactions.forEach(t => {
+        html += `<div class="settle-row">${t.from} owes ${t.to} <strong>$${t.amt.toFixed(2)}</strong></div>`;
+      });
+    }
+    html += '</div>';
+
+    document.getElementById("balanceArea").innerHTML = html;
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById("expenseRows");
+    if (expenses.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="7" class="exp-empty">No expenses logged yet — add the first one above!</td></tr>';
+      return;
+    }
+    let html = "";
+    // most recent first
+    const sorted = [...expenses].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    sorted.forEach(exp => {
+      html += `<tr>
+        <td>${escapeHtml(exp.description)}</td>
+        <td>$${exp.amount.toFixed(2)}</td>
+        <td>${escapeHtml(exp.paidBy)}</td>
+        <td>${exp.split.map(escapeHtml).join(", ")}</td>
+        <td>
+          <select class="status-select ${statusClass(exp.status)}" data-id="${exp.id}" onchange="window.updateExpenseStatus('${exp.id}', this.value)">
+            <option value="paid" ${exp.status === "paid" ? "selected" : ""}>Paid</option>
+            <option value="reserved" ${exp.status === "reserved" ? "selected" : ""}>Reserved</option>
+            <option value="tbp" ${exp.status === "tbp" ? "selected" : ""}>To Be Paid</option>
+          </select>
+        </td>
+        <td>${exp.due ? escapeHtml(exp.due) : "—"}</td>
+        <td><button class="del-btn" onclick="window.deleteExpense('${exp.id}')" title="Delete">✕</button></td>
+      </tr>`;
+    });
+    tbody.innerHTML = html;
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  window.updateExpenseStatus = async function(id, newStatus) {
+    const exp = expenses.find(e => e.id === id);
+    if (exp) {
+      exp.status = newStatus;
+      await saveExpenses();
+      render();
+    }
+  };
+
+  window.deleteExpense = async function(id) {
+    if (!confirm("Delete this expense?")) return;
+    expenses = expenses.filter(e => e.id !== id);
+    await saveExpenses();
+    render();
+  };
+
+  document.getElementById("expenseForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+    const desc = document.getElementById("expDesc").value.trim();
+    const amount = parseFloat(document.getElementById("expAmount").value);
+    const paidBy = document.getElementById("expPaidBy").value;
+    const status = document.getElementById("expStatus").value;
+    const due = document.getElementById("expDue").value;
+    const split = Array.from(document.querySelectorAll(".expSplit:checked")).map(cb => cb.value);
+
+    if (!desc || isNaN(amount) || amount <= 0 || split.length === 0) {
+      alert("Please fill in a description, a valid amount, and at least one person to split between.");
+      return;
+    }
+
+    const newExpense = {
+      id: "exp_" + Date.now() + "_" + Math.random().toString(36).slice(2, 8),
+      description: desc,
+      amount: amount,
+      paidBy: paidBy,
+      split: split,
+      status: status,
+      due: due || null,
+      createdAt: Date.now()
+    };
+
+    expenses.push(newExpense);
+    await saveExpenses();
+    render();
+    this.reset();
+    document.querySelectorAll(".expSplit").forEach(cb => cb.checked = true);
+  });
+
+  loadExpenses();
+})();
+</script>
+</body>
+</html>
